@@ -1,0 +1,36 @@
+Here's a short guide on how to get yourself established with this template:
+
+1) Pick a name for your project
+    - Rename "python_package_name" folder to that name
+    - setup.py => Set the "name" value
+    - tox.ini => Replace "python_package_name" with that name
+
+2) Determine what verion of Python you are looking to develop on
+    - We recommend 3.7.6 at this point
+
+3) Once you determine your Python version, you'll need to update your version choice in a few places:
+    - mypy.ini => Set the "python_version" value
+    - tox.ini => Set the "basepython" value
+    - setup.py => Remove the invalid Python version(s) from the list if your code won't be compatible with them
+
+4) Setup a Python virtual environment using PyCharm
+    - File > Settings > Project > Project Interpreter > Gear Icon > Add > (Pick your Base Python Version) > Ok
+    - A popup should appear to install requriements. Do that.
+
+From here, you'll just need a few more pieces of information.
+
+1) If you want to include non-Python files in your package, add them to the "MANIFEST.in" file with the following format(s):
+    - include path/to/file/file_name.txt
+    - include include/full/path/*
+    - include include/only/text/files/*.txt
+
+2) If you are including something from a file in the same package, make sure to include it as follows:
+    - from . import thing_from_same_directory
+    - from .. import thing_from_parent_directory
+    - from .classes import thing_from_class_directory
+
+3) If you use the "classes" directory, make sure to include all components you want access to in the __init__.py file:
+    - from .file_name import thing_from_class_directory
+
+4) Before you commit code, run the "tox.ini" file (you can do this by right clicking > Run Tox in Pycharm)
+    - Fix all issues so all check marks appear

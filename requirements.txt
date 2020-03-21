@@ -1,0 +1,11 @@
+# Libraries required to make your python package work
+# Should be done as "library==version_number"
+
+# These are required for Tox to execute
+black==19.10b0
+isort==4.3.21
+mypy==0.761
+pylint==2.4.4
+pytest==5.3.4
+pytest-cov==2.8.1
+tox==3.14.3
